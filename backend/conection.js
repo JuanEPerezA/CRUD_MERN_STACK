@@ -1,17 +1,14 @@
 const mongoose = require('mongoose');
-const { URL_MONGODB } = require('./config.js');
-
-// Database.
-mongoose.connect(URL_MONGODB);
+mongoose.connect('mongodb://127.0.0.1:27017/crudmernstack');
 
 const objectdb = mongoose.connection
 
 objectdb.on('connected', () => {
-    console.log('Conexión exitosa a MongoDB: '+URL_MONGODB)
+    console.log('Conexión exitosa a MongoDB')
 })
 
 objectdb.on('error', () => {
-    console.log('Error en la conexión a MongoDB: '+URL_MONGODB)
+    console.log('Error en la conexión a MongoDB')
 })
 
 module.exports = mongoose
